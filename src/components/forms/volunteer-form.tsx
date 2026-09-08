@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, AlertCircle, Loader2, Send, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FormField, Input, Textarea, Select, HoneypotField } from "./form-ui";
+import { FormField, Input, PhoneInput, Textarea, Select, HoneypotField } from "./form-ui";
 
 interface VolunteerFormState {
   fullName: string;
@@ -231,21 +231,19 @@ export function VolunteerForm() {
           label="Phone Number"
           required
           error={fieldErrors.phone}
-          helperText="10–15 digits with optional country code"
+          helperText="10-digit Indian mobile number"
         >
           {({ id, hasError, describedBy }) => (
-            <Input
+            <PhoneInput
               id={id}
               name="phone"
-              type="tel"
               required
               hasError={hasError}
               aria-describedby={describedBy}
-              placeholder="+91 98765 43210"
+              placeholder="98765 43210"
               value={formData.phone}
               onChange={handleChange}
               disabled={status === "submitting"}
-              autoComplete="tel"
             />
           )}
         </FormField>

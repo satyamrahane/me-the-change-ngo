@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, AlertCircle, Loader2, RefreshCw, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FormField, Input, Textarea, HoneypotField } from "./form-ui";
+import { FormField, Input, PhoneInput, Textarea, HoneypotField } from "./form-ui";
 
 interface CsrFormState {
   companyName: string;
@@ -225,21 +225,19 @@ export function CsrForm() {
           label="Direct Contact Number"
           required
           error={fieldErrors.phone}
-          helperText="Official phone or mobile number"
+          helperText="10-digit official phone or mobile number"
         >
           {({ id, hasError, describedBy }) => (
-            <Input
+            <PhoneInput
               id={id}
               name="phone"
-              type="tel"
               required
               hasError={hasError}
               aria-describedby={describedBy}
-              placeholder="+91 98765 43210"
+              placeholder="98765 43210"
               value={formData.phone}
               onChange={handleChange}
               disabled={status === "submitting"}
-              autoComplete="tel"
             />
           )}
         </FormField>

@@ -23,7 +23,7 @@ export const volunteerFormSchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(phoneRegex, "Please enter a valid phone number (10–15 digits)"),
+    .regex(phoneRegex, "Please enter a valid 10-digit phone number"),
   city: z
     .string()
     .trim()
@@ -65,7 +65,7 @@ export const contactFormSchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(phoneRegex, "Please enter a valid phone number (10–15 digits)")
+    .regex(phoneRegex, "Please enter a valid 10-digit phone number")
     .optional()
     .or(z.literal("")),
   subject: z
@@ -106,7 +106,7 @@ export const csrFormSchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(phoneRegex, "Please enter a valid contact number (10–15 digits)"),
+    .regex(phoneRegex, "Please enter a valid 10-digit contact number"),
   areaOfInterest: z
     .string()
     .trim()

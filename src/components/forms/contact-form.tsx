@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, AlertCircle, Loader2, Send, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FormField, Input, Textarea, HoneypotField } from "./form-ui";
+import { FormField, Input, PhoneInput, Textarea, HoneypotField } from "./form-ui";
 
 interface ContactFormState {
   name: string;
@@ -200,20 +200,18 @@ export function ContactForm() {
           id="contact-phone"
           label="Phone Number (Optional)"
           error={fieldErrors.phone}
-          helperText="Optional, for callback assistance"
+          helperText="Optional, 10-digit mobile number"
         >
           {({ id, hasError, describedBy }) => (
-            <Input
+            <PhoneInput
               id={id}
               name="phone"
-              type="tel"
               hasError={hasError}
               aria-describedby={describedBy}
-              placeholder="+91 98765 43210"
+              placeholder="98765 43210"
               value={formData.phone}
               onChange={handleChange}
               disabled={status === "submitting"}
-              autoComplete="tel"
             />
           )}
         </FormField>

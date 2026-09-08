@@ -43,7 +43,7 @@ export const initiatives: Initiative[] = [
       "Healthcare Access Aid",
     ],
     status: "draft",
-    ctaText: "Support Medical Aid",
+    ctaText: "Support Medicine Aid",
     ctaHref: "/donate",
   },
   {

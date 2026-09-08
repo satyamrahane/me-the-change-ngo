@@ -4,6 +4,7 @@ import { InitiativesPreview } from "@/components/home/initiatives-preview";
 import { ImpactOverview } from "@/components/home/impact-overview";
 import { TransparencyPreview } from "@/components/home/transparency-preview";
 import { GetInvolvedPreview } from "@/components/home/get-involved-preview";
+import { InstagramFeed } from "@/components/social/instagram-feed";
 import { CtaBanner } from "@/components/home/cta-banner";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <ImpactOverview />
       <TransparencyPreview />
       <GetInvolvedPreview />
+      <InstagramFeed />
       <CtaBanner />
     </>
   );

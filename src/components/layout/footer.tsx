@@ -167,15 +167,22 @@ export function Footer() {
 
                 <div className="flex items-center gap-3 text-slate-400">
                   <MessageCircle className="h-4 w-4 text-emerald-400 shrink-0" aria-hidden="true" />
-                  <a
-                    href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm inline-flex items-center gap-1"
-                  >
-                    <span>WhatsApp Helpdesk</span>
-                    <ArrowUpRight className="h-3 w-3 opacity-70" aria-hidden="true" />
-                  </a>
+                  {!siteConfig.contact.whatsapp.includes("X") && siteConfig.contact.whatsapp.replace(/[^0-9]/g, "").length >= 10 ? (
+                    <a
+                      href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm inline-flex items-center gap-1"
+                    >
+                      <span>WhatsApp Helpdesk</span>
+                      <ArrowUpRight className="h-3 w-3 opacity-70" aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <span className="text-slate-400 inline-flex items-center gap-1.5">
+                      <span>WhatsApp Helpdesk</span>
+                      <span className="text-xs text-slate-500 font-normal">(Setup in progress)</span>
+                    </span>
+                  )}
                 </div>
               </div>
 

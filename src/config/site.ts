@@ -26,6 +26,7 @@ export interface SiteConfig {
     email: string; // Pending NGO confirmation
     phone: string; // Pending NGO confirmation
     whatsapp: string; // Pending NGO confirmation (e.g. +91XXXXXXXXXX)
+    whatsappPrefillMessage: string;
   };
   social: {
     instagram: string;
@@ -76,6 +77,8 @@ export const siteConfig: SiteConfig = {
     email: "contact@methechange.org", // Pending NGO confirmation
     phone: "+91-XXXXXXXXXX", // Pending NGO confirmation
     whatsapp: "+91-XXXXXXXXXX", // Pending NGO confirmation
+    whatsappPrefillMessage:
+      "Hello Me The Change team, I would like to know more about your initiatives.",
   },
 
   social: {
@@ -194,4 +197,12 @@ export const siteConfig: SiteConfig = {
     enableCsrInquiries: true,
   },
 };
+
+export function isWhatsAppConfigured(): boolean {
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || siteConfig.contact.whatsapp;
+  if (!number || number.includes("X")) return false;
+  const digits = number.replace(/[^0-9]/g, "");
+  return digits.length >= 10;
+}
+
 

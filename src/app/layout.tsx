@@ -17,6 +17,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppFloating } from "@/components/social/whatsapp-floating";
 
 export const metadata: Metadata = {
   title: {
@@ -42,6 +43,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppFloating />
       </body>
     </html>
   );

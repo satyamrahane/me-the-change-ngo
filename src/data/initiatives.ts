@@ -14,6 +14,7 @@ export const initiatives: Initiative[] = [
     slug: "food-relief",
     title: "Food Relief",
     category: "food-relief",
+    image: "/images/food-relief.jpg",
     shortDescription:
       "Nutritional assistance and hospital food distribution drives for patients and underprivileged families.",
     longDescription:
@@ -31,6 +32,7 @@ export const initiatives: Initiative[] = [
     slug: "medicine-aid",
     title: "Medicine Aid",
     category: "medical-aid",
+    image: "/images/medicine-aid.jpg",
     shortDescription:
       "Assistance with essential prescription medicines and medical support for critical patients.",
     longDescription:
@@ -48,6 +50,7 @@ export const initiatives: Initiative[] = [
     slug: "crisis-relief",
     title: "Crisis Relief",
     category: "crisis-relief",
+    image: "/images/crisis-relief.jpg",
     shortDescription:
       "Rapid disaster response, emergency community assistance, and crisis relief interventions.",
     longDescription:

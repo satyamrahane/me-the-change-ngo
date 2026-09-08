@@ -1,20 +1,21 @@
-import { siteConfig } from "@/config/site";
+import { HeroSection } from "@/components/home/hero-section";
+import { MissionSection } from "@/components/home/mission-section";
+import { InitiativesPreview } from "@/components/home/initiatives-preview";
+import { ImpactOverview } from "@/components/home/impact-overview";
+import { TransparencyPreview } from "@/components/home/transparency-preview";
+import { GetInvolvedPreview } from "@/components/home/get-involved-preview";
+import { CtaBanner } from "@/components/home/cta-banner";
 
 export default function Home() {
   return (
-    <div className="flex min-h-[50vh] flex-col items-center justify-center p-8 text-center">
-      <div className="max-w-xl space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-          {siteConfig.name}
-        </h1>
-        <p className="text-lg text-slate-600">
-          {siteConfig.tagline}
-        </p>
-        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-500">
-          Global Layout Active (Phase 3)
-        </div>
-      </div>
-    </div>
-
+    <>
+      <HeroSection />
+      <MissionSection />
+      <InitiativesPreview />
+      <ImpactOverview />
+      <TransparencyPreview />
+      <GetInvolvedPreview />
+      <CtaBanner />
+    </>
   );
 }

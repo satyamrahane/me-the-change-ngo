@@ -105,3 +105,46 @@ CREATE POLICY "Service role full access on csr_inquiries"
     TO service_role
     USING (true)
     WITH CHECK (true);
+
+
+-- ==============================================================================
+-- 4. Donations Table (Phase 9: Razorpay Payment Integration)
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.donations (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'captured', 'failed', 'cancelled')),
+    donor_name TEXT NOT NULL,
+    donor_email TEXT NOT NULL,
+    donor_phone TEXT NOT NULL,
+    amount NUMERIC(12,2) NOT NULL CHECK (amount > 0),
+    amount_paise BIGINT NOT NULL CHECK (amount_paise > 0),
+    currency TEXT NOT NULL DEFAULT 'INR',
+    initiative TEXT NOT NULL DEFAULT 'general' CHECK (initiative IN ('general', 'food-relief', 'medicine-aid', 'crisis-relief')),
+    razorpay_order_id TEXT NOT NULL UNIQUE,
+    razorpay_payment_id TEXT UNIQUE,
+    razorpay_signature TEXT,
+    is_mock BOOLEAN NOT NULL DEFAULT FALSE,
+    receipt_number TEXT NOT NULL,
+    ip_hash TEXT,
+    user_agent TEXT
+);
+
+-- Unique index for idempotent payment lookup and order reconciliation
+CREATE INDEX IF NOT EXISTS idx_donations_created_at ON public.donations (created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_donations_order_id ON public.donations (razorpay_order_id);
+CREATE INDEX IF NOT EXISTS idx_donations_payment_id ON public.donations (razorpay_payment_id);
+CREATE INDEX IF NOT EXISTS idx_donations_status ON public.donations (status);
+
+-- Enable RLS
+ALTER TABLE public.donations ENABLE ROW LEVEL SECURITY;
+
+-- Service role has full access
+CREATE POLICY "Service role full access on donations"
+    ON public.donations
+    FOR ALL
+    TO service_role
+    USING (true)
+    WITH CHECK (true);
+

@@ -7,6 +7,8 @@
  * Placeholders are clearly marked and structured for seamless updates.
  */
 
+import { NavItem, FooterSection, FooterLink } from "@/types";
+
 export interface SiteConfig {
   name: string;
   legalName: string;
@@ -40,6 +42,12 @@ export interface SiteConfig {
     hasValid80G: boolean;
     hasValidCsrOne: boolean;
   };
+  mainNav: NavItem[];
+  footerNav: {
+    transparency: FooterSection;
+    initiatives: FooterSection;
+  };
+  legalNav: FooterLink[];
   features: {
     enableDonations: boolean;
     mockDonations: boolean;
@@ -61,7 +69,7 @@ export const siteConfig: SiteConfig = {
     city: "Pune",
     state: "Maharashtra",
     country: "India",
-    fullAddress: "Pune, Maharashtra, India (Official registered address pending NGO confirmation)",
+    fullAddress: "Pune, Maharashtra, India",
   },
 
   contact: {
@@ -78,14 +86,106 @@ export const siteConfig: SiteConfig = {
   },
 
   legal: {
-    trustRegistrationNumber: "PENDING_OFFICIAL_REGISTRATION_NUMBER",
-    darpanId: "PENDING_DARPAN_ID",
-    twelveA: "PENDING_12A_DETAILS",
-    eightyG: "PENDING_80G_DETAILS",
-    csrOne: "PENDING_CSR1_DETAILS",
+    trustRegistrationNumber: "Registration in progress",
+    darpanId: "Pending verification",
+    twelveA: "Pending verification",
+    eightyG: "Pending verification",
+    csrOne: "Pending verification",
     hasValid80G: false, // Flag to toggle verified 80G badge when certificates are officially uploaded
     hasValidCsrOne: false, // Flag to toggle CSR-1 badge
   },
+
+  mainNav: [
+    {
+      title: "Home",
+      href: "/",
+    },
+    {
+      title: "About Us",
+      href: "/about",
+    },
+    {
+      title: "Initiatives",
+      href: "/initiatives",
+      items: [
+        {
+          title: "Food Relief",
+          href: "/initiatives/food-relief",
+          description: "Daily nutrition & hospital food drives for patients and vulnerable families",
+        },
+        {
+          title: "Medicine Aid",
+          href: "/initiatives/medicine-aid",
+          description: "Emergency prescription assistance and critical medical care support",
+        },
+        {
+          title: "Crisis Relief",
+          href: "/initiatives/crisis-relief",
+          description: "Rapid disaster response, flood assistance, and emergency relief operations",
+        },
+      ],
+    },
+    {
+      title: "Transparency & Legal",
+      href: "/transparency",
+      items: [
+        {
+          title: "Certificates",
+          href: "/transparency#certificates",
+          description: "Official NGO registration, trust deeds, and foundation credentials",
+        },
+        {
+          title: "Audit Reports",
+          href: "/transparency#audit-reports",
+          description: "Annual audited financial statements and fund utilization disclosures",
+        },
+        {
+          title: "Licenses",
+          href: "/transparency#licenses",
+          description: "12A, 80G tax exemption, CSR-1, and Darpan accreditations",
+        },
+      ],
+    },
+    {
+      title: "Impact Stories",
+      href: "/impact-stories",
+    },
+    {
+      title: "Get Involved",
+      href: "/get-involved",
+    },
+    {
+      title: "Contact Us",
+      href: "/contact",
+    },
+  ],
+
+  footerNav: {
+    transparency: {
+      title: "Transparency & Documents",
+      items: [
+        { title: "Registration Certificate", href: "/transparency#certificates" },
+        { title: "12A / 80G Exemption", href: "/transparency#licenses" },
+        { title: "CSR-1 Registration", href: "/transparency#licenses" },
+        { title: "NGO Darpan ID", href: "/transparency#licenses" },
+        { title: "Annual Audit Reports", href: "/transparency#audit-reports" },
+      ],
+    },
+    initiatives: {
+      title: "Our Work",
+      items: [
+        { title: "Sassoon Hospital Food Drive", href: "/initiatives/food-relief" },
+        { title: "Medical Aid Program", href: "/initiatives/medicine-aid" },
+        { title: "COVID-19 Relief Archive", href: "/initiatives/crisis-relief" },
+      ],
+    },
+  },
+
+  legalNav: [
+    { title: "Privacy Policy", href: "/privacy-policy" },
+    { title: "Terms & Conditions", href: "/terms-and-conditions" },
+    { title: "Refund & Cancellation Policy", href: "/refund-cancellation-policy" },
+  ],
 
   features: {
     enableDonations: true,
@@ -94,3 +194,4 @@ export const siteConfig: SiteConfig = {
     enableCsrInquiries: true,
   },
 };
+

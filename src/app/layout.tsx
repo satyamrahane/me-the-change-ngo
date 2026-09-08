@@ -15,6 +15,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -33,9 +36,14 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
-        {children}
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground selection:bg-primary-light selection:text-primary">
+        <Header />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
 }
+

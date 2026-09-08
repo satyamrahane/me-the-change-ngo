@@ -8,6 +8,18 @@ export interface NavItem {
   description?: string;
   disabled?: boolean;
   external?: boolean;
+  items?: NavItem[];
+}
+
+export interface FooterLink {
+  title: string;
+  href: string;
+  external?: boolean;
+}
+
+export interface FooterSection {
+  title: string;
+  items: FooterLink[];
 }
 
 export interface SocialLink {
@@ -15,3 +27,4 @@ export interface SocialLink {
   href: string;
   icon?: string;
 }
+

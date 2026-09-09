@@ -14,18 +14,16 @@ import Razorpay from "razorpay";
 let cachedRazorpayInstance: Razorpay | null = null;
 
 export function isPaymentsMockMode(): boolean {
-  if (process.env.PAYMENTS_MODE === "mock") {
+  if (process.env.PAYMENTS_MODE === "mock" || process.env.NEXT_PUBLIC_MOCK_PAYMENTS === "true") {
     return true;
   }
 
-  // In non-production environments, default to mock mode if keys are placeholders or missing
-  if (process.env.NODE_ENV !== "production") {
-    const keyId = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-    const secret = process.env.RAZORPAY_KEY_SECRET;
+  const keyId = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+  const secret = process.env.RAZORPAY_KEY_SECRET;
 
-    if (!keyId || !secret || keyId.includes("placeholder") || secret.includes("placeholder")) {
-      return true;
-    }
+  // If live keys are missing or placeholders, safely fallback to mock mode
+  if (!keyId || !secret || keyId.includes("placeholder") || secret.includes("placeholder")) {
+    return true;
   }
 
   return false;

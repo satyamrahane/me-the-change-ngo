@@ -56,7 +56,7 @@ export function MobileNav() {
   // Manage body scroll, focus trap, and Escape key
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
 
       // Move focus into the drawer upon opening
       const timer = setTimeout(() => {
@@ -93,11 +93,11 @@ export function MobileNav() {
       document.addEventListener("keydown", handleKeyDown);
       return () => {
         clearTimeout(timer);
-        document.body.style.overflow = "";
+        document.body.style.overflowY = "";
         document.removeEventListener("keydown", handleKeyDown);
       };
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflowY = "";
     }
   }, [isOpen]);
 

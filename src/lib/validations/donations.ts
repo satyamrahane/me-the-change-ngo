@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { MIN_DONATION } from "@/lib/constants";
 
 const phoneRegex = /^(\+?[0-9\s\-]{10,15})$/;
 
@@ -7,7 +8,7 @@ export const createDonationOrderSchema = z.object({
     .number({
       message: "Please enter a valid donation amount in Rupees",
     })
-    .min(100, "Minimum donation amount is ₹100")
+    .min(MIN_DONATION, `Minimum donation amount is ₹${MIN_DONATION}`)
     .max(500000, "Maximum online donation limit is ₹5,00,000 per transaction"),
   donorName: z
     .string()

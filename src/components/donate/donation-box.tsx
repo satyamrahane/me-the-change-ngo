@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FormField, Input, HoneypotField } from "@/components/forms/form-ui";
+import { MIN_DONATION } from "@/lib/constants";
 import { InitiativePreference } from "@/lib/donations/store";
 
 const PRESET_AMOUNTS = [500, 1000, 2500, 5000];
@@ -148,10 +149,10 @@ export function DonationBox() {
     setErrorMessage("");
     setFieldErrors({});
 
-    if (effectiveAmount < 100) {
+    if (effectiveAmount < MIN_DONATION) {
       setFieldErrors((prev) => ({
         ...prev,
-        amount: "Minimum donation amount is ₹100",
+        amount: `Minimum donation amount is ₹${MIN_DONATION}`,
       }));
       return;
     }
@@ -348,7 +349,7 @@ export function DonationBox() {
             <span className="block text-sm font-semibold text-foreground">
               Choose Contribution Amount (INR) <span className="text-red-500">*</span>
             </span>
-            <span className="text-xs text-muted-foreground">Min ₹100</span>
+            <span className="text-xs text-muted-foreground">Min ₹{MIN_DONATION}</span>
           </div>
 
           <div role="group" aria-label="Preset contribution amounts" className="grid grid-cols-2 sm:grid-cols-4 gap-3">

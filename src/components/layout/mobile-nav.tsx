@@ -27,10 +27,18 @@ export function MobileNav() {
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   // Toggle mobile drawer
   const toggleMenu = () => setIsOpen((prev) => !prev);
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = (restoreFocus = false) => {
+    setIsOpen(false);
+    if (restoreFocus) {
+      requestAnimationFrame(() => {
+        toggleButtonRef.current?.focus();
+      });
+    }
+  };
 
   const toggleSection = (title: string) => {
     setExpandedSections((prev) => ({
@@ -45,19 +53,46 @@ export function MobileNav() {
     setIsOpen(false);
   }
 
-
-  // Lock body scroll and handle Escape key
+  // Manage body scroll, focus trap, and Escape key
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+
+      // Move focus into the drawer upon opening
+      const timer = setTimeout(() => {
+        closeButtonRef.current?.focus();
+      }, 50);
+
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") {
-          setIsOpen(false);
-          toggleButtonRef.current?.focus();
+          e.preventDefault();
+          closeMenu(true);
+          return;
+        }
+
+        // Focus trap within drawer
+        if (e.key === "Tab" && drawerRef.current) {
+          const focusableElements = drawerRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableElements.length === 0) return;
+
+          const firstElement = focusableElements[0];
+          const lastElement = focusableElements[focusableElements.length - 1];
+
+          if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          } else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
         }
       };
+
       document.addEventListener("keydown", handleKeyDown);
       return () => {
+        clearTimeout(timer);
         document.body.style.overflow = "";
         document.removeEventListener("keydown", handleKeyDown);
       };
@@ -95,7 +130,7 @@ export function MobileNav() {
           <div
             className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
             aria-hidden="true"
-            onClick={closeMenu}
+            onClick={() => closeMenu(true)}
           />
 
           {/* Drawer Panel */}
@@ -114,7 +149,7 @@ export function MobileNav() {
             <div className="flex items-center justify-between border-b border-border pb-4">
               <Link
                 href="/"
-                onClick={closeMenu}
+                onClick={() => closeMenu(false)}
                 className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
               >
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-base shadow-sm">
@@ -131,8 +166,9 @@ export function MobileNav() {
               </Link>
 
               <button
+                ref={closeButtonRef}
                 type="button"
-                onClick={closeMenu}
+                onClick={() => closeMenu(true)}
                 aria-label="Close menu"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-slate-500 hover:bg-muted hover:text-slate-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
@@ -154,7 +190,7 @@ export function MobileNav() {
                     <Link
                       key={item.title}
                       href={item.href}
-                      onClick={closeMenu}
+                      onClick={() => closeMenu(false)}
                       className={cn(
                         "flex items-center rounded-lg px-3 py-2.5 text-base font-medium transition-colors",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
@@ -205,7 +241,7 @@ export function MobileNav() {
                             <Link
                               key={subItem.title}
                               href={subItem.href}
-                              onClick={closeMenu}
+                              onClick={() => closeMenu(false)}
                               className={cn(
                                 "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
                                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
@@ -232,7 +268,7 @@ export function MobileNav() {
                 variant="secondary"
                 size="lg"
                 href="/donate"
-                onClick={closeMenu}
+                onClick={() => closeMenu(false)}
                 className="w-full justify-center shadow-sm text-base font-semibold"
               >
                 <Heart className="h-4 w-4 fill-current mr-2" aria-hidden="true" />

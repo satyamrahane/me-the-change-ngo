@@ -72,9 +72,9 @@ export default function GetInvolvedPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary">
                   <Users className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h2 className="font-heading text-xl font-bold text-foreground">
+                <h3 className="font-heading text-xl font-bold text-foreground">
                   Volunteer on the Ground
-                </h2>
+                </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Join our volunteer network in Pune to assist with food drives, emergency medicine coordination, logistics,
                   and community relief efforts.
@@ -97,9 +97,9 @@ export default function GetInvolvedPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-light text-accent">
                   <Heart className="h-6 w-6 fill-current" aria-hidden="true" />
                 </div>
-                <h2 className="font-heading text-xl font-bold text-foreground">
+                <h3 className="font-heading text-xl font-bold text-foreground">
                   Donate to Relief Funds
-                </h2>
+                </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Financial contributions directly sustain our field operations, purchasing fresh meals and critical prescription
                   drugs for patients and families in urgent need.
@@ -122,9 +122,9 @@ export default function GetInvolvedPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
                   <Building2 className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h2 className="font-heading text-xl font-bold text-foreground">
+                <h3 className="font-heading text-xl font-bold text-foreground">
                   CSR & Institutional Support
-                </h2>
+                </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Partner with Me The Change to align your organization&apos;s corporate social responsibility initiatives with
                   verifiable grassroots humanitarian impact.

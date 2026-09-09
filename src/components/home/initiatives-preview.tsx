@@ -87,7 +87,10 @@ export function InitiativesPreview() {
                     href={`/initiatives/${initiative.slug}`}
                     className="text-sm font-semibold text-primary hover:text-primary-hover flex items-center gap-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                   >
-                    <span>Learn More</span>
+                    <span>
+                      Learn More
+                      <span className="sr-only"> about {initiative.title}</span>
+                    </span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </Link>
 
@@ -95,6 +98,7 @@ export function InitiativesPreview() {
                     variant="ghost"
                     size="sm"
                     href="/donate"
+                    aria-label={`Donate to support ${initiative.title}`}
                     className="text-xs text-accent hover:text-accent-hover font-semibold"
                   >
                     Donate

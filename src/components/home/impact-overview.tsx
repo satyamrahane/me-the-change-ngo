@@ -69,7 +69,10 @@ export function ImpactOverview() {
                       }
                       className="inline-flex items-center text-xs font-semibold text-primary hover:text-primary-hover group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                     >
-                      <span>Explore Initiative Focus</span>
+                      <span>
+                        Explore Initiative Focus
+                        <span className="sr-only"> for {highlight.title}</span>
+                      </span>
                       <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                     </Link>
                   </div>
@@ -80,9 +83,9 @@ export function ImpactOverview() {
 
           {/* Operational Integrity Note */}
           <div className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8 text-center max-w-3xl mx-auto shadow-xs">
-            <h4 className="font-heading text-base font-semibold text-slate-900">
+            <h3 className="font-heading text-base font-semibold text-slate-900">
               Verified Reporting & Continuous Community Tracking
-            </h4>
+            </h3>
             <p className="mt-2 text-sm text-slate-600 leading-relaxed">
               We uphold strict reporting standards. Detailed impact metrics, annual meal distribution audits,
               and fund allocations are published in our annual transparency reports.

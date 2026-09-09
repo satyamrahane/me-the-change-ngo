@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   Heart,
@@ -78,6 +78,17 @@ export function DonationBox() {
     receiptNumber: string;
     donorName: string;
   } | null>(null);
+
+  useEffect(() => {
+    if (!mockModal?.isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMockModal(null);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [mockModal?.isOpen]);
 
   const handlePresetSelect = (preset: number) => {
     setFormData((prev) => ({
@@ -340,13 +351,14 @@ export function DonationBox() {
             <span className="text-xs text-muted-foreground">Min ₹100</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div role="group" aria-label="Preset contribution amounts" className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {PRESET_AMOUNTS.map((amt) => {
               const selected = !formData.isCustom && formData.amount === amt;
               return (
                 <button
                   type="button"
                   key={amt}
+                  aria-pressed={selected}
                   onClick={() => handlePresetSelect(amt)}
                   disabled={isSubmitting}
                   className={`flex flex-col items-center justify-center p-4 rounded-xl border text-base font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
@@ -379,6 +391,7 @@ export function DonationBox() {
                 value={formData.customAmount}
                 onChange={handleCustomChange}
                 disabled={isSubmitting}
+                aria-describedby={fieldErrors.amount ? "custom-amount-error" : undefined}
                 className={`flex h-11 w-full rounded-xl border bg-background pl-8 pr-3.5 py-2 text-sm text-foreground shadow-xs transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 ${
                   formData.isCustom && effectiveAmount < 100
                     ? "border-red-500 focus-visible:ring-red-500"
@@ -387,7 +400,7 @@ export function DonationBox() {
               />
             </div>
             {fieldErrors.amount && (
-              <p className="text-xs font-medium text-red-600 dark:text-red-400 mt-1" role="alert">
+              <p id="custom-amount-error" className="text-xs font-medium text-red-600 dark:text-red-400 mt-1" role="alert">
                 {fieldErrors.amount}
               </p>
             )}
@@ -395,10 +408,10 @@ export function DonationBox() {
         </div>
 
         {/* 2. Choose Initiative Preference */}
-        <div className="space-y-3 pt-2">
-          <label className="block text-sm font-semibold text-foreground">
+        <fieldset className="space-y-3 pt-2">
+          <legend className="block text-sm font-semibold text-foreground">
             Initiative Preference <span className="text-xs font-normal text-muted-foreground">(Optional)</span>
-          </label>
+          </legend>
           <div className="space-y-2">
             {INITIATIVE_OPTIONS.map((init) => {
               const selected = formData.initiative === init.id;
@@ -428,7 +441,7 @@ export function DonationBox() {
               );
             })}
           </div>
-        </div>
+        </fieldset>
 
         {/* 3. Donor Details */}
         <div className="space-y-5 pt-2">

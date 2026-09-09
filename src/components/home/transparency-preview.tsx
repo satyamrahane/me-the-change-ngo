@@ -79,9 +79,9 @@ export function TransparencyPreview() {
           {/* Bottom Callout */}
           <div className="rounded-xl border border-primary/20 bg-primary/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="space-y-1 text-center sm:text-left">
-              <h4 className="font-heading text-base font-semibold text-foreground">
+              <h3 className="font-heading text-base font-semibold text-foreground">
                 Official Certifications & Trust Disclosures
-              </h4>
+              </h3>
               <p className="text-sm text-muted-foreground">
                 All statutory filings, trust deeds, and audit records will be directly accessible in our Transparency section.
               </p>

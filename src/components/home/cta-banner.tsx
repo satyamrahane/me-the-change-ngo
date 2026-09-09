@@ -37,7 +37,7 @@ export function CtaBanner() {
               variant="outline"
               size="lg"
               href="/get-involved"
-              className="w-full sm:w-auto font-medium text-base text-slate-900 border-white/30 hover:bg-white/10 hover:border-white/60 px-8"
+              className="w-full sm:w-auto font-medium text-base text-white border-white/40 bg-white/10 hover:bg-white/20 hover:text-white hover:border-white/70 px-8"
             >
               <span>Get Involved</span>
               <ArrowRight className="h-4 w-4 ml-2" aria-hidden="true" />

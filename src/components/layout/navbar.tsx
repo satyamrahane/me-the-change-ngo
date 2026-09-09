@@ -31,8 +31,10 @@ export function Navbar() {
     }
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" && openDropdown) {
+        const triggerId = `dropdown-${openDropdown.toLowerCase().replace(/\s+/g, "-")}-button`;
         setOpenDropdown(null);
+        document.getElementById(triggerId)?.focus();
       }
     }
 
@@ -42,7 +44,7 @@ export function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [openDropdown]);
 
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
@@ -50,6 +52,11 @@ export function Navbar() {
     setOpenDropdown(null);
   }
 
+  const handleNavBlur = (event: React.FocusEvent<HTMLElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+      setOpenDropdown(null);
+    }
+  };
 
   const toggleDropdown = (title: string) => {
     setOpenDropdown((prev) => (prev === title ? null : title));
@@ -59,6 +66,7 @@ export function Navbar() {
     <nav
       ref={navRef}
       aria-label="Main Navigation"
+      onBlur={handleNavBlur}
       className="hidden lg:flex items-center gap-1 xl:gap-2"
     >
       {siteConfig.mainNav.map((item: NavItem) => {
@@ -124,7 +132,6 @@ export function Navbar() {
             {isOpen && (
               <div
                 id={dropdownId}
-                role="menu"
                 aria-labelledby={`${dropdownId}-button`}
                 className={cn(
                   "absolute left-0 top-full pt-2 w-80 z-50 animate-in fade-in-0 zoom-in-95 duration-150"
@@ -146,7 +153,6 @@ export function Navbar() {
                         <Link
                           key={subItem.title}
                           href={subItem.href}
-                          role="menuitem"
                           onClick={() => setOpenDropdown(null)}
                           className={cn(
                             "group flex items-start gap-3 rounded-lg p-2.5 text-sm transition-colors",

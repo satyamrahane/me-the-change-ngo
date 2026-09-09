@@ -72,6 +72,7 @@ export function DocumentTable({
                       href={doc.filePath}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`View ${doc.title} (opens in new tab)`}
                       className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                     >
                       <span>View</span>

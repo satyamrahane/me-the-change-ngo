@@ -98,7 +98,10 @@ export default function InitiativesPage() {
                         href={`/initiatives/${initiative.slug}`}
                         className="font-semibold justify-center group"
                       >
-                        <span>Learn More</span>
+                        <span>
+                          Learn More
+                          <span className="sr-only"> about {initiative.title}</span>
+                        </span>
                         <ArrowRight className="h-4 w-4 ml-1.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                       </Button>
 
@@ -106,6 +109,7 @@ export default function InitiativesPage() {
                         variant="ghost"
                         size="md"
                         href="/donate"
+                        aria-label={`Donate to support ${initiative.title}`}
                         className="font-medium text-accent hover:text-accent-hover justify-center"
                       >
                         <Heart className="h-4 w-4 fill-current mr-1.5" aria-hidden="true" />

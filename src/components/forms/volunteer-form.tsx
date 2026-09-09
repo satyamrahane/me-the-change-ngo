@@ -297,10 +297,13 @@ export function VolunteerForm() {
       </FormField>
 
       {/* Areas of Interest Multi-select */}
-      <div className="space-y-2 text-left">
-        <span className="block text-sm font-medium text-foreground">
+      <fieldset
+        className="space-y-2 text-left"
+        aria-describedby={fieldErrors.areasOfInterest ? "areas-of-interest-error" : undefined}
+      >
+        <legend className="block text-sm font-medium text-foreground">
           Areas of Interest <span className="text-red-500" aria-hidden="true">*</span>
-        </span>
+        </legend>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
           {INTEREST_OPTIONS.map((option) => {
             const checked = formData.areasOfInterest.includes(option);
@@ -326,11 +329,11 @@ export function VolunteerForm() {
           })}
         </div>
         {fieldErrors.areasOfInterest && (
-          <p className="text-xs font-medium text-red-600 dark:text-red-400" role="alert">
+          <p id="areas-of-interest-error" className="text-xs font-medium text-red-600 dark:text-red-400" role="alert">
             {fieldErrors.areasOfInterest}
           </p>
         )}
-      </div>
+      </fieldset>
 
       <FormField
         id="message"

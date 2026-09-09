@@ -63,6 +63,7 @@ export function DocumentCard({ document }: DocumentCardProps) {
             href={document.filePath}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View ${document.title} (${document.fileType || "PDF"}, opens in new tab)`}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
           >
             <span>View Document</span>

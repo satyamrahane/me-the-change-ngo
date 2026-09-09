@@ -61,6 +61,7 @@ export function InstagramFeed() {
               href={post.postUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View Instagram post: ${post.caption.slice(0, 60)}... (opens in new tab)`}
               className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-xs hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               {/* Media Thumbnail */}

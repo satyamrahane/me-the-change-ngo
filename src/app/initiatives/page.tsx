@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 export const metadata: Metadata = {
   title: "Our Initiatives",
   description:
-    "Explore Me The Change's three core relief pillars: Food Relief, Medicine Aid, and Crisis Relief — grassroots programs serving Pune's vulnerable communities.",
+    "Explore Me The Change's core relief initiatives: Daily Food Relief & Hospital Drives, Medical Aid & Patient Welfare, and COVID-19 & Crisis Relief in Pune.",
 };
 
 export default function InitiativesPage() {

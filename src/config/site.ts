@@ -20,26 +20,25 @@ export interface SiteConfig {
     city: string;
     state: string;
     country: string;
-    fullAddress: string; // Pending NGO confirmation
+    fullAddress: string;
   };
   contact: {
-    email: string; // Pending NGO confirmation
-    phone: string; // Pending NGO confirmation
-    whatsapp: string; // Pending NGO confirmation (e.g. +91XXXXXXXXXX)
+    email: string;
+    phone: string;
+    phoneRaw: string;
+    whatsapp: string;
     whatsappPrefillMessage: string;
   };
   social: {
     instagram: string;
     instagramHandle: string;
-    youtube: string;
-    linkedin: string;
   };
   legal: {
-    trustRegistrationNumber: string; // Pending NGO confirmation
-    darpanId: string; // Pending NGO confirmation
-    twelveA: string; // 12A registration details pending
-    eightyG: string; // 80G tax exemption details pending
-    csrOne: string; // CSR-1 registration details pending
+    trustRegistrationNumber: string;
+    darpanId: string;
+    twelveA: string;
+    eightyG: string;
+    csrOne: string;
     hasValid80G: boolean;
     hasValidCsrOne: boolean;
   };
@@ -59,24 +58,25 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Me The Change",
-  legalName: "Me The Change Foundation",
-  tagline: "Creating Change, Inspiring Hope",
+  legalName: "Me The Change",
+  tagline: "Eradicating Hunger & Direct Community Action",
   description:
-    "Official web platform for Me The Change NGO. Dedicated to hunger relief, medical assistance, crisis response, and grassroots community empowerment.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.methechange.org",
+    "Me The Change is a grassroots non-governmental organization committed to eradicating hunger and uplifting underserved communities across Pune through daily nourishment, medical aid, and crisis relief.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://methechange.org",
   ogImage: "/images/og-image.jpg",
   
   registeredOffice: {
     city: "Pune",
     state: "Maharashtra",
     country: "India",
-    fullAddress: "Pune, Maharashtra, India",
+    fullAddress: "160, Gavthan Shivaji Nagar, Pune, Maharashtra, 411005",
   },
 
   contact: {
-    email: "contact@methechange.org", // Pending NGO confirmation
-    phone: "+91-XXXXXXXXXX", // Pending NGO confirmation
-    whatsapp: "+91-XXXXXXXXXX", // Pending NGO confirmation
+    email: "", // Official email address not provided by NGO
+    phone: "+91 98810 98920",
+    phoneRaw: "9881098920",
+    whatsapp: "", // WhatsApp not confirmed for helpline use
     whatsappPrefillMessage:
       "Hello Me The Change team, I would like to know more about your initiatives.",
   },
@@ -84,18 +84,16 @@ export const siteConfig: SiteConfig = {
   social: {
     instagram: "https://www.instagram.com/methechange",
     instagramHandle: "@methechange",
-    youtube: "https://www.youtube.com/@methechange", // Pending official channel handle
-    linkedin: "https://www.linkedin.com/company/methechange", // Pending official page link
   },
 
   legal: {
-    trustRegistrationNumber: "Registration in progress",
+    trustRegistrationNumber: "Pending verification",
     darpanId: "Pending verification",
     twelveA: "Pending verification",
     eightyG: "Pending verification",
     csrOne: "Pending verification",
-    hasValid80G: false, // Flag to toggle verified 80G badge when certificates are officially uploaded
-    hasValidCsrOne: false, // Flag to toggle CSR-1 badge
+    hasValid80G: false,
+    hasValidCsrOne: false,
   },
 
   mainNav: [
@@ -114,17 +112,17 @@ export const siteConfig: SiteConfig = {
         {
           title: "Food Relief",
           href: "/initiatives/food-relief",
-          description: "Daily nutrition & hospital food drives for patients and vulnerable families",
+          description: "Daily nutrition & hospital caregiver food drives across 3 public hospitals",
         },
         {
           title: "Medicine Aid",
           href: "/initiatives/medicine-aid",
-          description: "Emergency prescription assistance and critical medical care support",
+          description: "Emergency prescription assistance and vital medical care support",
         },
         {
           title: "Crisis Relief",
           href: "/initiatives/crisis-relief",
-          description: "Rapid disaster response, flood assistance, and emergency relief operations",
+          description: "Emergency grocery kits, migrant relief, and rapid crisis response",
         },
       ],
     },
@@ -134,24 +132,15 @@ export const siteConfig: SiteConfig = {
       items: [
         {
           title: "Certificates",
-          href: "/transparency#certificates",
-          description: "Official NGO registration, trust deeds, and foundation credentials",
+          href: "/transparency/certificates",
+          description: "Official statutory registrations, trust deeds, and foundation credentials",
         },
         {
           title: "Audit Reports",
-          href: "/transparency#audit-reports",
+          href: "/transparency/audits",
           description: "Annual audited financial statements and fund utilization disclosures",
         },
-        {
-          title: "Licenses",
-          href: "/transparency#licenses",
-          description: "12A, 80G tax exemption, CSR-1, and Darpan accreditations",
-        },
       ],
-    },
-    {
-      title: "Impact Stories",
-      href: "/impact-stories",
     },
     {
       title: "Get Involved",
@@ -165,21 +154,19 @@ export const siteConfig: SiteConfig = {
 
   footerNav: {
     transparency: {
-      title: "Transparency & Documents",
+      title: "Transparency & Legal",
       items: [
-        { title: "Registration Certificate", href: "/transparency#certificates" },
-        { title: "12A / 80G Exemption", href: "/transparency#licenses" },
-        { title: "CSR-1 Registration", href: "/transparency#licenses" },
-        { title: "NGO Darpan ID", href: "/transparency#licenses" },
-        { title: "Annual Audit Reports", href: "/transparency#audit-reports" },
+        { title: "Certificates & Registrations", href: "/transparency/certificates" },
+        { title: "Annual Audit Reports", href: "/transparency/audits" },
+        { title: "Public Governance", href: "/transparency" },
       ],
     },
     initiatives: {
       title: "Our Work",
       items: [
-        { title: "Sassoon Hospital Food Drive", href: "/initiatives/food-relief" },
-        { title: "Medical Aid Program", href: "/initiatives/medicine-aid" },
-        { title: "COVID-19 Relief Archive", href: "/initiatives/crisis-relief" },
+        { title: "Daily Food Relief & Hospital Drives", href: "/initiatives/food-relief" },
+        { title: "Medical Aid & Patient Welfare", href: "/initiatives/medicine-aid" },
+        { title: "COVID-19 & Crisis Relief", href: "/initiatives/crisis-relief" },
       ],
     },
   },

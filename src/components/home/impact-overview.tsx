@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin, Building2, Stethoscope, History } from "lucide-react";
-import { qualitativeHighlights } from "@/data/impact";
+import { qualitativeHighlights, impactStats } from "@/data/impact";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,10 +21,32 @@ export function ImpactOverview() {
           {/* Header */}
           <SectionHeading
             align="center"
-            eyebrow="On-Ground Focus"
-            title="Real-World Grassroots Presence"
-            description="Our relief missions focus on direct, accountable community aid. Here are the core areas where our teams and volunteers stay actively engaged."
+            eyebrow="Verified On-Ground Impact"
+            title="Grassroots Action at a Glance"
+            description="Our relief missions provide direct nourishment, patient assistance, and crisis relief across Pune with verifiable community impact."
           />
+
+          {/* 3 Verified Metric Counters */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {impactStats.map((stat) => (
+              <div
+                key={stat.id}
+                className="rounded-2xl border border-border bg-card p-6 sm:p-8 text-center shadow-xs flex flex-col justify-center items-center space-y-2"
+              >
+                <span className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-primary">
+                  {stat.value}
+                </span>
+                <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground">
+                  {stat.label}
+                </h3>
+                {stat.description && (
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-xs">
+                    {stat.description}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
 
           {/* Qualitative Focus Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

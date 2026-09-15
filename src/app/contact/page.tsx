@@ -1,16 +1,35 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Mail, MapPin, ShieldCheck } from "lucide-react";
+import { Phone, MapPin, ShieldCheck, ExternalLink } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ContactForm } from "@/components/forms/contact-form";
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Me The Change. Send inquiries regarding grassroots relief, volunteer opportunities, and institutional support in Pune.",
+    "Get in touch with Me The Change. Send inquiries regarding grassroots relief, volunteer opportunities, and community support in Pune.",
 };
 
 export default function ContactPage() {
@@ -47,12 +66,36 @@ export default function ContactPage() {
                   Reach Out to Our Team
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  You can reach us through the form or our official channels. Official direct phone lines and office visitation
-                  protocols will be published once physical verification is completed by our governing trust.
+                  You can reach our on-ground team directly via phone, connect on Instagram, or submit an inquiry through our online contact form.
                 </p>
               </div>
 
               <div className="space-y-4">
+                {/* Phone Support */}
+                <Card className="p-5">
+                  <CardContent className="flex items-start gap-4 p-0">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-light text-primary shrink-0">
+                      <Phone className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="font-heading text-base font-semibold text-foreground">
+                        Phone Helpline
+                      </h3>
+                      <p className="text-sm text-slate-700 font-medium">
+                        <a
+                          href={`tel:+91${siteConfig.contact.phoneRaw}`}
+                          className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                        >
+                          {siteConfig.contact.phone}
+                        </a>
+                      </p>
+                      <span className="inline-block text-xs text-muted-foreground pt-0.5">
+                        Direct assistance and volunteer inquiries
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+
                 {/* Office Location */}
                 <Card className="p-5">
                   <CardContent className="flex items-start gap-4 p-0">
@@ -61,52 +104,52 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-1">
                       <h3 className="font-heading text-base font-semibold text-foreground">
-                        Registered Location
+                        Office Address
                       </h3>
                       <p className="text-sm text-slate-600 leading-relaxed">
-                        {siteConfig.registeredOffice.city}, {siteConfig.registeredOffice.state}, {siteConfig.registeredOffice.country}
+                        {siteConfig.registeredOffice.fullAddress}
                       </p>
-                      <span className="inline-block text-xs text-muted-foreground pt-0.5">
-                        Jurisdiction: Charity Commissioner Pune
-                      </span>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Email Support */}
+                {/* Instagram Channel */}
                 <Card className="p-5">
                   <CardContent className="flex items-start gap-4 p-0">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-light text-primary shrink-0">
-                      <Mail className="h-5 w-5" aria-hidden="true" />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 shrink-0">
+                      <InstagramIcon className="h-5 w-5" />
                     </div>
                     <div className="space-y-1">
                       <h3 className="font-heading text-base font-semibold text-foreground">
-                        Email Inquiry
+                        Instagram
                       </h3>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-slate-700 font-medium">
                         <a
-                          href={`mailto:${siteConfig.contact.email}`}
-                          className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                          href={siteConfig.social.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                         >
-                          {siteConfig.contact.email}
+                          <span>{siteConfig.social.instagramHandle}</span>
+                          <ExternalLink className="h-3.5 w-3.5 opacity-70" aria-hidden="true" />
                         </a>
                       </p>
                       <span className="inline-block text-xs text-muted-foreground pt-0.5">
-                        General inquiries and correspondence
+                        Daily field updates and community outreach
                       </span>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Official Transparency Notice */}
+                {/* Public Notice */}
                 <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 text-sm text-slate-600 space-y-2">
                   <div className="flex items-center gap-2 font-medium text-foreground">
                     <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
                     <span>Public Notice</span>
                   </div>
                   <p className="text-xs leading-relaxed">
-                    Me The Change Foundation does not accept unreceipted cash donations or unsolicited personal requests.
-                    All formal communications are routed through registered email accounts.
+                    Me The Change does not accept unreceipted cash donations or unsolicited personal requests.
+                    All formal inquiries are processed via our verified phone line or online contact form.
                   </p>
                 </div>
               </div>

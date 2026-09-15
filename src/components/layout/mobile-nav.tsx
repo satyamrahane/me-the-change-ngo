@@ -279,10 +279,10 @@ export function MobileNav() {
                 <span className="font-medium text-slate-700">Need Immediate Assistance?</span>
                 <div className="mt-1">
                   <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="text-primary hover:underline"
+                    href={`tel:+91${siteConfig.contact.phoneRaw}`}
+                    className="text-primary font-semibold hover:underline"
                   >
-                    {siteConfig.contact.email}
+                    Call {siteConfig.contact.phone}
                   </a>
                 </div>
               </div>

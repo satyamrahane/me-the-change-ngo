@@ -32,7 +32,7 @@ const INTEREST_OPTIONS = [
   "Medical Aid & Patient Support",
   "Emergency Crisis Response",
   "Ground Logistics & Distribution",
-  "Event & Awareness Campaigns",
+  "Community Outreach & Awareness",
   "Administrative & Community Support",
 ];
 

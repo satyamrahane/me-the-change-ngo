@@ -20,18 +20,18 @@ export function HeroSection() {
               </Badge>
               <Badge variant="neutral" className="flex items-center gap-1.5 py-1 px-3">
                 <ShieldCheck className="h-3.5 w-3.5 text-slate-600" aria-hidden="true" />
-                <span>Public Charitable Trust</span>
+                <span>Non-Governmental Organization</span>
               </Badge>
             </div>
 
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]">
-              Creating Change, <br className="hidden sm:inline" />
-              <span className="text-primary">Inspiring Hope</span>
+              Eradicating Hunger, <br className="hidden sm:inline" />
+              <span className="text-primary">Direct Community Action</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-700 max-w-2xl leading-relaxed">
-              {siteConfig.name} is dedicated to direct hunger relief, life-saving medical aid,
-              and rapid crisis assistance for vulnerable families and patients across Pune.
+              {siteConfig.name} is a grassroots non-governmental organization providing consistent daily
+              nourishment, medical aid, and crisis relief to the most vulnerable members of society in Pune.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto pt-2">
@@ -60,7 +60,7 @@ export function HeroSection() {
             <div className="pt-6 border-t border-border/70 grid grid-cols-3 gap-4 w-full text-left">
               <div>
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider block">Food Relief</span>
-                <span className="text-xs text-muted-foreground mt-0.5 block">Hospital & Community Drives</span>
+                <span className="text-xs text-muted-foreground mt-0.5 block">3 Public Hospitals Daily</span>
               </div>
               <div>
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider block">Medicine Aid</span>
@@ -68,7 +68,7 @@ export function HeroSection() {
               </div>
               <div>
                 <span className="text-xs font-semibold text-primary uppercase tracking-wider block">Crisis Relief</span>
-                <span className="text-xs text-muted-foreground mt-0.5 block">Emergency Response</span>
+                <span className="text-xs text-muted-foreground mt-0.5 block">Emergency Rations</span>
               </div>
             </div>
           </div>

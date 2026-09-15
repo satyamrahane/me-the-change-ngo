@@ -37,7 +37,7 @@ export const faqs: FAQItem[] = [
   {
     id: "faq-contact-info",
     question: "How can I contact the NGO directly?",
-    answer: `You can contact our official team in Pune via email at ${siteConfig.contact.email} or connect with us on our official social media channels.`,
+    answer: `You can reach our team in Pune directly by calling ${siteConfig.contact.phone}, connecting with us on Instagram (${siteConfig.social.instagramHandle}), or submitting an inquiry through our online contact form.`,
     category: "general",
     status: "verified",
   },

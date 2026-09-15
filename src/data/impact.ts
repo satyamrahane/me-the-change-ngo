@@ -20,57 +20,53 @@ export interface QualitativeHighlight {
 export const impactStats: ImpactStat[] = [
   {
     id: "stat-meals-served",
-    label: "Meals Distributed",
-    description: "Nutritious meals provided through hospital and community food drives.",
+    label: "Meals Served",
+    value: "250,000+",
+    description: "Nutritious meals distributed to daily wage earners, migrant workers, and destitute families.",
     category: "food-relief",
-    status: "pending",
+    status: "verified",
   },
   {
-    id: "stat-medical-aid",
-    label: "Medical Aid Recipients",
-    description: "Patients supported with emergency medication and prescription funding.",
-    category: "medical-aid",
-    status: "pending",
+    id: "stat-food-packets-daily",
+    label: "Food Packets Daily",
+    value: "250",
+    description: "Fresh, hot, and hygienic meal packets distributed every single day.",
+    category: "food-relief",
+    status: "verified",
   },
   {
-    id: "stat-crisis-response",
-    label: "Emergency Interventions",
-    description: "Crisis and disaster relief mobilization missions completed.",
-    category: "crisis-relief",
-    status: "pending",
-  },
-  {
-    id: "stat-active-volunteers",
-    label: "Community Volunteers",
-    description: "Dedicated grassroots volunteers participating across Pune initiatives.",
-    category: "community",
-    status: "pending",
+    id: "stat-hospitals-covered",
+    label: "Major Hospitals Covered Daily",
+    value: "3",
+    description: "Public hospitals receiving daily food relief. Sassoon General Hospital is specifically supported.",
+    category: "food-relief",
+    status: "verified",
   },
 ];
 
 export const qualitativeHighlights: QualitativeHighlight[] = [
   {
     id: "highlight-sassoon-hospital",
-    title: "Sassoon Hospital Food Drives",
+    title: "Daily Food Relief & Hospital Drives",
     description:
-      "Consistent food distribution support serving patients, attendants, and families outside Sassoon General Hospital.",
+      "Me The Change serves hot, hygienic food packets daily across 3 public hospitals. Sassoon General Hospital is specifically supported.",
     initiative: "food-relief",
     location: "Pune, Maharashtra",
   },
   {
     id: "highlight-emergency-medicine",
-    title: "Prescription Assistance Network",
+    title: "Medical Aid & Patient Welfare",
     description:
-      "Direct aid providing life-critical medicines to patients unable to afford prescription costs.",
+      "Facilitating vital medicines, surgical consumables, and prescribed treatments for low-income patients admitted to public health facilities.",
     initiative: "medical-aid",
     location: "Pune, Maharashtra",
   },
   {
     id: "highlight-covid-relief",
-    title: "COVID-19 Crisis Response",
+    title: "COVID-19 & Crisis Relief",
     description:
-      "Historical community relief mobilization providing food kits, hygiene supplies, and emergency assistance.",
+      "Distributing comprehensive dry-ration kits and providing direct outreach to stranded rickshaw drivers, factory workers, and migrant families navigating severe economic disruption.",
     initiative: "crisis-relief",
-    location: "Pune & Surrounding Regions",
+    location: "Pune, Maharashtra",
   },
 ];

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Building2, MapPin } from "lucide-react";
+import { Building2, Users, MapPin } from "lucide-react";
 import { getInitiativeBySlug } from "@/data/initiatives";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
 import { InitiativeLayout } from "@/components/initiatives/initiative-layout";
 
 export const metadata: Metadata = {
-  title: "Food Relief",
+  title: "Daily Food Relief & Hospital Drives",
   description:
-    "Me The Change's food relief initiative provides nutritional assistance and hospital food drives for patients and families in Pune, including the Sassoon Hospital Food Drive.",
+    "Me The Change serves hot, hygienic food packets daily across 3 public hospitals, specifically supporting Sassoon General Hospital, and ensures meal distributions for daily wage workers.",
 };
 
 export default function FoodReliefPage() {
@@ -21,18 +21,18 @@ export default function FoodReliefPage() {
 
   return (
     <InitiativeLayout initiative={initiative}>
-      {/* Sassoon Hospital Food Drive — known work reference */}
       <section className="py-12 sm:py-16 bg-background">
         <Container size="lg">
-          <div className="mx-auto max-w-4xl">
-            <div className="rounded-2xl border border-border bg-card p-8 sm:p-10 shadow-xs space-y-6">
+          <div className="mx-auto max-w-4xl space-y-8">
+            {/* Subsection 1: Hospital Caregiver Food Support */}
+            <div className="rounded-2xl border border-border bg-card p-8 sm:p-10 shadow-xs space-y-5">
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary shrink-0">
                   <Building2 className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <div>
                   <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
-                    Sassoon Hospital Food Drive
+                    Hospital Caregiver Food Support
                   </h2>
                   <p className="text-sm text-muted-foreground flex items-center gap-1.5 mt-1">
                     <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
@@ -42,17 +42,34 @@ export default function FoodReliefPage() {
               </div>
 
               <p className="text-base text-slate-700 leading-relaxed">
-                One of our most consistent and recognized activities is the food distribution drive conducted
-                outside Sassoon General Hospital in Pune. These drives provide nutritious meals to patients,
-                their attendants, and family members who often travel long distances for treatment and face
-                difficulty arranging regular meals during extended hospital stays.
+                Impoverished patients and their caregivers travel vast distances to government hospitals
+                like Sassoon General Hospital, often skipping meals due to treatment expenses. Me The Change
+                serves hot, hygienic food packets daily across 3 public hospitals. Sassoon General Hospital
+                is specifically supported.
               </p>
+            </div>
 
-              <div className="rounded-xl bg-primary/5 border border-primary/10 p-5 text-sm text-slate-600 leading-relaxed">
-                <strong className="text-foreground">Note:</strong> Detailed operational metrics, distribution
-                schedules, and verified beneficiary data for this initiative are being prepared for public
-                disclosure. Updated figures will be published in our transparency reports.
+            {/* Subsection 2: Daily Wage Worker Support */}
+            <div className="rounded-2xl border border-border bg-card p-8 sm:p-10 shadow-xs space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50 text-accent shrink-0">
+                  <Users className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <div>
+                  <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+                    Daily Wage Worker Support
+                  </h2>
+                  <p className="text-sm text-muted-foreground flex items-center gap-1.5 mt-1">
+                    <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span>Urban Centers &amp; Hubs • {siteConfig.registeredOffice.city}</span>
+                  </p>
+                </div>
               </div>
+
+              <p className="text-base text-slate-700 leading-relaxed">
+                Ensuring consistent meal distributions for street vendors, construction labourers,
+                and destitute individuals across city hubs.
+              </p>
             </div>
           </div>
         </Container>

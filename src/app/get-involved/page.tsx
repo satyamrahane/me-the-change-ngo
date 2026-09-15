@@ -76,8 +76,7 @@ export default function GetInvolvedPage() {
                   Volunteer on the Ground
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Join our volunteer network in Pune to assist with food drives, emergency medicine coordination, logistics,
-                  and community relief efforts.
+                  Join our grassroots volunteer network in Pune to assist with daily hospital food drives, patient caregiver support, and emergency crisis relief operations.
                 </p>
               </CardContent>
               <div className="pt-6">
@@ -98,11 +97,10 @@ export default function GetInvolvedPage() {
                   <Heart className="h-6 w-6 fill-current" aria-hidden="true" />
                 </div>
                 <h3 className="font-heading text-xl font-bold text-foreground">
-                  Donate to Relief Funds
+                  Donate to Relief Operations
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Financial contributions directly sustain our field operations, purchasing fresh meals and critical prescription
-                  drugs for patients and families in urgent need.
+                  Financial contributions directly sustain our field operations—funding daily food packets across 3 public hospitals, vital prescription assistance, and emergency grocery kits.
                 </p>
               </CardContent>
               <div className="pt-6">
@@ -123,11 +121,10 @@ export default function GetInvolvedPage() {
                   <Building2 className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <h3 className="font-heading text-xl font-bold text-foreground">
-                  CSR & Institutional Support
+                  CSR &amp; Institutional Support
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Partner with Me The Change to align your organization&apos;s corporate social responsibility initiatives with
-                  verifiable grassroots humanitarian impact.
+                  Partner with Me The Change to align your organization&apos;s corporate social responsibility initiatives with verified grassroots hunger eradication and healthcare assistance.
                 </p>
               </CardContent>
               <div className="pt-6">
@@ -158,7 +155,7 @@ export default function GetInvolvedPage() {
               </h2>
               <p className="text-base text-slate-600 leading-relaxed">
                 Please complete the form below. Our volunteer team will review your availability and areas of interest,
-                and connect with you when suitable relief activities are scheduled in {siteConfig.registeredOffice.city}.
+                and connect with you when on-ground relief activities are scheduled in {siteConfig.registeredOffice.city}.
               </p>
             </div>
 

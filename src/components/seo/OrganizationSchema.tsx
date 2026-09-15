@@ -8,15 +8,27 @@ export const OrganizationSchema = () => {
     url: siteConfig.url,
     logo: `${siteConfig.url}${siteConfig.ogImage}`,
     name: siteConfig.name,
+    description: siteConfig.description,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '160, Gavthan Shivaji Nagar',
+      addressLocality: 'Pune',
+      addressRegion: 'Maharashtra',
+      postalCode: '411005',
+      addressCountry: 'IN',
+    },
+    founder: {
+      '@type': 'Person',
+      name: 'Ganesh Chavan',
+    },
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: siteConfig.contact.phone,
-        contactType: 'Customer Service',
-        email: siteConfig.contact.email,
+        telephone: '+919881098920',
+        contactType: 'Helpline',
       },
     ],
-    sameAs: [siteConfig.social.instagram, siteConfig.social.youtube, siteConfig.social.linkedin],
+    sameAs: [siteConfig.social.instagram],
   };
 
   return (

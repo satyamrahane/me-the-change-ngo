@@ -7,7 +7,6 @@ import {
   MapPin,
   ShieldCheck,
   HeartHandshake,
-  ArrowUpRight,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
@@ -23,24 +22,7 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-function YoutubeIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-      <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
 
-function LinkedinIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
 
 
 export function Footer() {
@@ -80,8 +62,8 @@ export function Footer() {
                 <div className="flex items-start gap-2">
                   <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" aria-hidden="true" />
                   <span>
-                    <strong className="text-slate-200">Registration: </strong>
-                    {siteConfig.legal.trustRegistrationNumber}
+                    <strong className="text-slate-200">Organization: </strong>
+                    Grassroots Non-Governmental Organization
                   </span>
                 </div>
                 <div className="flex items-start gap-2">
@@ -148,7 +130,7 @@ export function Footer() {
                 <div className="flex items-center gap-3 text-slate-400">
                   <Phone className="h-4 w-4 text-slate-400 shrink-0" aria-hidden="true" />
                   <a
-                    href={`tel:${siteConfig.contact.phone}`}
+                    href={`tel:+91${siteConfig.contact.phoneRaw}`}
                     className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                   >
                     {siteConfig.contact.phone}
@@ -157,32 +139,20 @@ export function Footer() {
 
                 <div className="flex items-center gap-3 text-slate-400">
                   <Mail className="h-4 w-4 text-slate-400 shrink-0" aria-hidden="true" />
-                  <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm break-all"
+                  <Link
+                    href="/contact"
+                    className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                   >
-                    {siteConfig.contact.email}
-                  </a>
+                    Online Contact Form
+                  </Link>
                 </div>
 
                 <div className="flex items-center gap-3 text-slate-400">
                   <MessageCircle className="h-4 w-4 text-emerald-400 shrink-0" aria-hidden="true" />
-                  {!siteConfig.contact.whatsapp.includes("X") && siteConfig.contact.whatsapp.replace(/[^0-9]/g, "").length >= 10 ? (
-                    <a
-                      href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm inline-flex items-center gap-1"
-                    >
-                      <span>WhatsApp Helpdesk</span>
-                      <ArrowUpRight className="h-3 w-3 opacity-70" aria-hidden="true" />
-                    </a>
-                  ) : (
-                    <span className="text-slate-400 inline-flex items-center gap-1.5">
-                      <span>WhatsApp Helpdesk</span>
-                      <span className="text-xs text-slate-500 font-normal">(Setup in progress)</span>
-                    </span>
-                  )}
+                  <span className="text-slate-400 inline-flex items-center gap-1.5">
+                    <span>WhatsApp Helpdesk</span>
+                    <span className="text-xs text-slate-500 font-normal">(Setup in progress)</span>
+                  </span>
                 </div>
               </div>
 
@@ -201,26 +171,6 @@ export function Footer() {
                   >
                     <InstagramIcon className="h-4 w-4" />
                   </a>
-
-                  <a
-                    href={siteConfig.social.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="YouTube Channel"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800/80 text-slate-300 hover:bg-red-600 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                  >
-                    <YoutubeIcon className="h-4 w-4" />
-                  </a>
-
-                  <a
-                    href={siteConfig.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn Page"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800/80 text-slate-300 hover:bg-[#0a66c2] hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                  >
-                    <LinkedinIcon className="h-4 w-4" />
-                  </a>
                 </div>
               </div>
             </div>
@@ -234,10 +184,10 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 text-xs text-slate-400 md:flex-row">
             <div className="text-center md:text-left">
               <p>
-                © {currentYear} {siteConfig.legalName}. All rights reserved.
+                © {currentYear} {siteConfig.name}. All rights reserved.
               </p>
               <p className="mt-0.5 text-slate-400">
-                A non-profit public charitable trust registered in Pune, Maharashtra.
+                A grassroots non-governmental organization in Pune, Maharashtra.
               </p>
             </div>
 

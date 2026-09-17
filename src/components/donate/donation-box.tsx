@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Heart,
@@ -524,16 +525,21 @@ export function DonationBox() {
           </FormField>
         </div>
 
-        {/* 4. Tax Exemption & Regulatory Disclosure */}
+        {/* 4. Voluntary Contribution & Policy Disclosure */}
         <div className="rounded-xl border border-border bg-slate-50 dark:bg-slate-900/40 p-4 text-xs text-slate-600 leading-relaxed space-y-1.5">
           <div className="flex items-center gap-1.5 font-semibold text-foreground">
             <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
-            <span>Tax Exemption & Receipt Policy</span>
+            <span>Voluntary Contribution Information</span>
           </div>
           <p>
-            Standard digital receipts are issued immediately for all online contributions. Section 80G tax exemption
-            certification for Me The Change Foundation is currently under statutory renewal/verification with the
-            Income Tax Department. Contributions directly fund grassroots field relief in Pune.
+            Contributions directly fund daily on-ground hunger relief, hospital caregiver support, and emergency aid in Pune. All contributions are voluntary. For questions regarding transaction acknowledgments or payment reviews, please refer to our{" "}
+            <Link href="/refund-cancellation-policy" className="text-primary underline hover:text-primary-hover">
+              Refund &amp; Cancellation Policy
+            </Link>{" "}
+            and{" "}
+            <Link href="/privacy-policy" className="text-primary underline hover:text-primary-hover">
+              Privacy Policy
+            </Link>.
           </p>
         </div>
 

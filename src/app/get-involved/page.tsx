@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Heart, Users, Building2, ArrowDown, ArrowRight } from "lucide-react";
@@ -157,6 +158,27 @@ export default function GetInvolvedPage() {
                 Please complete the form below. Our volunteer team will review your availability and areas of interest,
                 and connect with you when on-ground relief activities are scheduled in {siteConfig.registeredOffice.city}.
               </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-slate-100 shadow-xs">
+                <Image
+                  src="/images/real/food-volunteer.jpg"
+                  alt="A Me The Change volunteer distributing a hot food packet during a relief drive in Pune"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 320px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-slate-100 shadow-xs">
+                <Image
+                  src="/images/real/volunteer-poster.jpg"
+                  alt="Official Me The Change campaign poster calling for volunteers"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 320px"
+                  className="object-cover"
+                />
+              </div>
             </div>
 
             <VolunteerForm />

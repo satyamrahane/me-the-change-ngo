@@ -79,8 +79,7 @@ export default function CsrPartnershipsPage() {
                   Statutory Compliance
                 </h2>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Me The Change is a registered Public Charitable Trust. Official compliance documents (CSR-1, 12A/80G) are
-                  provided to prospective partners upon inquiry.
+                  Me The Change operates as a grassroots non-governmental organization. Operational records and organizational documentation are shared with prospective institutional partners during collaboration discussions.
                 </p>
               </CardContent>
             </Card>

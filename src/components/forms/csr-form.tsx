@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { CheckCircle2, AlertCircle, Loader2, RefreshCw, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 import { FormField, Input, PhoneInput, Textarea, HoneypotField } from "./form-ui";
 
 interface CsrFormState {
@@ -288,6 +290,13 @@ export function CsrForm() {
           />
         )}
       </FormField>
+
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        By submitting this partnership inquiry, you agree that {siteConfig.name} may contact your organization regarding CSR collaboration. Information is processed in accordance with our{" "}
+        <Link href="/privacy-policy" className="text-primary underline hover:text-primary-hover">
+          Privacy Policy
+        </Link>.
+      </p>
 
       <Button
         type="submit"

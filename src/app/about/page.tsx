@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import type { Metadata } from "next";
 import {
   Heart,
@@ -180,14 +181,25 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-8 sm:p-10 shadow-xs space-y-5 text-slate-700 leading-relaxed text-base sm:text-lg">
-              <p>
-                Witnessing first-hand the immense distress of daily wage earners, migrant workers, and
-                destitute families during moments of economic instability and crisis, Ganesh Chavan
-                mobilized volunteers to start direct food distributions. What began as a
-                community-driven response during the COVID-19 pandemic quickly evolved into a
-                dedicated, year-round humanitarian organization.
-              </p>
+            <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-xs">
+              <div className="relative aspect-[16/9] w-full bg-slate-100">
+                <Image
+                  src="/images/real/community-rally.jpg"
+                  alt="Volunteers and community members participating in a Me The Change awareness march in Pune"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 sm:p-10 space-y-5 text-slate-700 leading-relaxed text-base sm:text-lg">
+                <p>
+                  Witnessing first-hand the immense distress of daily wage earners, migrant workers, and
+                  destitute families during moments of economic instability and crisis, Ganesh Chavan
+                  mobilized volunteers to start direct food distributions. What began as a
+                  community-driven response during the COVID-19 pandemic quickly evolved into a
+                  dedicated, year-round humanitarian organization.
+                </p>
+              </div>
             </div>
           </div>
         </Container>

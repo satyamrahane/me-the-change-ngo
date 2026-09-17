@@ -170,7 +170,7 @@ export default function DesignSystemPage() {
           />
           <div className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-card p-6 shadow-sm">
             <Badge variant="default">Default Initiative</Badge>
-            <Badge variant="success">Verified 80G Compliant</Badge>
+            <Badge variant="success">Active Relief Program</Badge>
             <Badge variant="warning">Urgent Relief Drive</Badge>
             <Badge variant="neutral">Status Pending</Badge>
             <Badge variant="trust">Trust / Legal Document</Badge>

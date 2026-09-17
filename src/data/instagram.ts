@@ -22,42 +22,42 @@ export interface InstagramPost {
 export const instagramPosts: InstagramPost[] = [
   {
     id: "ig-food-drive-sassoon",
-    image: "/images/food-relief.jpg",
+    image: "/images/real/food-volunteer.jpg",
     caption:
-      "Hospital food distribution drive supporting patient families outside Sassoon General Hospital, Pune.",
+      "Hospital food distribution drive supporting patient families outside public hospitals in Pune.",
     postUrl: "https://www.instagram.com/methechange",
     category: "food-relief",
     status: "draft",
-    altText: "Volunteers conducting food relief distribution in Pune",
+    altText: "Volunteer distributing packed meal box during daily hunger relief drive",
   },
   {
     id: "ig-medical-assistance",
-    image: "/images/medicine-aid.jpg",
+    image: "/images/real/medical-camp.jpg",
     caption:
-      "Essential prescription medicine support for underprivileged patients undergoing urgent care.",
+      "Essential prescription medicine support and health checkup camps for underserved families.",
     postUrl: "https://www.instagram.com/methechange",
     category: "medical-aid",
     status: "draft",
-    altText: "Grassroots medical aid and prescription assistance program",
+    altText: "Free health screening and doctor consultation camp organized in Pune",
   },
   {
     id: "ig-crisis-response-training",
-    image: "/images/crisis-relief.jpg",
+    image: "/images/real/crisis-blankets.jpg",
     caption:
-      "Community disaster preparedness and emergency response supplies readiness in Pune.",
+      "Distributing warm blankets and essential emergency kits to families during cold weather drives.",
     postUrl: "https://www.instagram.com/methechange",
     category: "crisis-relief",
     status: "draft",
-    altText: "Emergency crisis relief supplies and logistics preparation",
+    altText: "Volunteers handing over blankets and essential grocery relief packages",
   },
   {
     id: "ig-community-volunteers",
-    image: "/images/hero-community.jpg",
+    image: "/images/real/community-rally.jpg",
     caption:
-      "Our dedicated grassroots volunteer team mobilizing for weekend community meal distribution.",
+      "Our dedicated grassroots volunteer team mobilizing for community outreach and awareness.",
     postUrl: "https://www.instagram.com/methechange",
     category: "community",
     status: "draft",
-    altText: "Me The Change community volunteers coming together for field action",
+    altText: "Me The Change community volunteers coming together during an on-ground awareness march",
   },
 ];

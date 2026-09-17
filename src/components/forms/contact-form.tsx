@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { CheckCircle2, AlertCircle, Loader2, Send, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 import { FormField, Input, PhoneInput, Textarea, HoneypotField } from "./form-ui";
 
 interface ContactFormState {
@@ -261,6 +263,13 @@ export function ContactForm() {
           />
         )}
       </FormField>
+
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        By submitting this form, you agree that {siteConfig.name} may contact you regarding your inquiry. Personal information is processed in accordance with our{" "}
+        <Link href="/privacy-policy" className="text-primary underline hover:text-primary-hover">
+          Privacy Policy
+        </Link>.
+      </p>
 
       <Button
         type="submit"

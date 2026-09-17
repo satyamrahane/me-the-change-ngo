@@ -77,8 +77,8 @@ export function HeroSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto aspect-[4/3] sm:aspect-[16/10] lg:aspect-square w-full max-w-lg overflow-hidden rounded-2xl border border-border shadow-xl bg-slate-100">
               <Image
-                src="/images/hero-community.jpg"
-                alt="Community volunteers distributing food and relief aid packages to families in Pune"
+                src="/images/real/hero-street-rally.jpg"
+                alt="Volunteers holding the Me The Change banner during an on-ground community awareness rally in Pune"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"

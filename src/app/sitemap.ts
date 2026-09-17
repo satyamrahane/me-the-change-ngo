@@ -12,10 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/initiatives/medicine-aid`,      priority: 0.8,  changeFrequency: 'monthly' },
     { url: `${base}/initiatives/crisis-relief`,     priority: 0.8,  changeFrequency: 'monthly' },
     { url: `${base}/transparency`,                  priority: 0.7,  changeFrequency: 'monthly' },
+    { url: `${base}/transparency/certificates`,     priority: 0.6,  changeFrequency: 'monthly' },
+    { url: `${base}/transparency/audits`,           priority: 0.6,  changeFrequency: 'monthly' },
     { url: `${base}/get-involved`,                  priority: 0.7,  changeFrequency: 'monthly' },
     { url: `${base}/csr-partnerships`,              priority: 0.7,  changeFrequency: 'monthly' },
     { url: `${base}/donate`,                        priority: 0.9,  changeFrequency: 'weekly' },
     { url: `${base}/contact`,                       priority: 0.6,  changeFrequency: 'monthly' },
+    { url: `${base}/privacy-policy`,                priority: 0.4,  changeFrequency: 'yearly' },
+    { url: `${base}/terms-and-conditions`,          priority: 0.4,  changeFrequency: 'yearly' },
+    { url: `${base}/refund-cancellation-policy`,    priority: 0.4,  changeFrequency: 'yearly' },
   ];
 
   return staticRoutes;

@@ -11,7 +11,7 @@ import { DocumentCard } from "@/components/transparency/document-card";
 export const metadata: Metadata = {
   title: "Statutory Certificates & Registrations",
   description:
-    "Statutory certificates, trust deed, 12A, 80G tax exemption, CSR-1, and NGO Darpan registration documents for Me The Change.",
+    "Statutory registration certificates, organizational documents, and regulatory transparency disclosures for Me The Change.",
 };
 
 export default function CertificatesPage() {

@@ -1,14 +1,10 @@
 import React from "react";
-import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, AlertCircle } from "lucide-react";
-import { transparencyDocuments } from "@/data/documents";
+import { Clock, AlertCircle, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/container";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DocumentCard } from "@/components/transparency/document-card";
 
 export const metadata: Metadata = {
   title: "Transparency & Legal Disclosures",
@@ -16,19 +12,8 @@ export const metadata: Metadata = {
     "Review Me The Change Foundation's public charitable trust registration documents, compliance certificates, and governance disclosures.",
 };
 
+
 export default function TransparencyPage() {
-  // Required items for certificates section: Registration, 12A/80G, CSR-1, Darpan ID
-  const certificateDocs = transparencyDocuments.filter(
-    (doc) =>
-      doc.category === "registration" ||
-      doc.category === "tax-exemption" ||
-      doc.category === "csr" ||
-      doc.category === "darpan"
-  );
-
-  const auditDocs = transparencyDocuments.filter((doc) => doc.category === "audit-report");
-  const licenseDocs = transparencyDocuments.filter((doc) => doc.category === "license");
-
   return (
     <>
       {/* Hero */}
@@ -50,14 +35,8 @@ export default function TransparencyPage() {
             </p>
 
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <Button variant="outline" size="sm" href="#certificates">
-                Certificates
-              </Button>
-              <Button variant="outline" size="sm" href="#audit-reports">
-                Audit Reports
-              </Button>
-              <Button variant="outline" size="sm" href="#licenses">
-                Licenses & Approvals
+              <Button variant="outline" size="sm" href="#document-register">
+                View Document Register
               </Button>
             </div>
           </div>
@@ -78,73 +57,85 @@ export default function TransparencyPage() {
         </Container>
       </section>
 
-      {/* 1. Certificates Section */}
-      <section id="certificates" className="py-14 sm:py-20 bg-background scroll-mt-20">
+      {/* Document Register Table */}
+      <section id="document-register" className="py-14 sm:py-20 bg-background scroll-mt-20">
         <Container size="lg">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <SectionHeading
-              eyebrow="Section 1"
-              title="Statutory Certificates"
-              description="Core public trust registration, tax exemption certifications, and government portal registrations."
-            />
-            <Link
-              href="/transparency/certificates"
-              className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-hover group whitespace-nowrap"
-            >
-              <span>View All Certificates</span>
-              <ArrowRight className="h-4 w-4 ml-1.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                Document Register
+              </p>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
+                Expected Public Documents
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed max-w-2xl">
+                The following documents are expected to be published here once the relevant registrations,
+                certificates, and audit filings have been obtained and verified by the NGO.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certificateDocs.map((doc) => (
-              <DocumentCard key={doc.id} document={doc} />
-            ))}
-          </div>
-        </Container>
-      </section>
+            {/* Responsive table */}
+            <div className="overflow-x-auto rounded-xl border border-border/80 bg-card shadow-xs">
+              <table className="w-full text-sm" aria-label="Me The Change document register">
+                <thead>
+                  <tr className="border-b border-border/70 bg-muted/40">
+                    <th scope="col" className="py-3 px-5 text-left font-semibold text-foreground">
+                      Document
+                    </th>
+                    <th scope="col" className="py-3 px-5 text-left font-semibold text-foreground whitespace-nowrap">
+                      Current Status
+                    </th>
+                    <th scope="col" className="py-3 px-5 text-left font-semibold text-foreground">
+                      Notes
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border/50">
+                  {[
+                    {
+                      name: "Trust / Society Registration Certificate",
+                      notes: "Certificate of incorporation under the applicable Societies / Trusts Act",
+                    },
+                    {
+                      name: "12A & 80G Certificates",
+                      notes: "Income Tax exemption enabling 80G donor benefits",
+                    },
+                    {
+                      name: "CSR-1 Registration",
+                      notes: "Ministry of Corporate Affairs filing enabling CSR partnerships",
+                    },
+                    {
+                      name: "NGO Darpan Registration",
+                      notes: "NITI Aayog NGO Darpan platform registration",
+                    },
+                    {
+                      name: "Annual Audit Reports",
+                      notes: "Independent CA audit reports and fund utilization statements",
+                    },
+                    {
+                      name: "Statutory Licenses / Approvals",
+                      notes: "Municipal and state clearances required for charitable relief activities",
+                    },
+                  ].map(({ name, notes }) => (
+                    <tr key={name} className="hover:bg-muted/20 transition-colors">
+                      <td className="py-4 px-5 font-medium text-foreground align-top">{name}</td>
+                      <td className="py-4 px-5 align-top">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 px-2.5 py-1 rounded-md border border-amber-200/60 dark:border-amber-900/40 whitespace-nowrap">
+                          <Clock className="h-3 w-3 shrink-0" aria-hidden="true" />
+                          Pending document
+                        </span>
+                      </td>
+                      <td className="py-4 px-5 text-slate-500 text-xs leading-relaxed align-top">{notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-      {/* 2. Audit Reports Section */}
-      <section id="audit-reports" className="py-14 sm:py-20 bg-card border-y border-border/60 scroll-mt-20">
-        <Container size="lg">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <SectionHeading
-              eyebrow="Section 2"
-              title="Audit Reports & Financial Disclosures"
-              description="Independent chartered accountant audit reports and annual fund utilization statements."
-            />
-            <Link
-              href="/transparency/audits"
-              className="inline-flex items-center text-sm font-semibold text-primary hover:text-primary-hover group whitespace-nowrap"
-            >
-              <span>View Audit Archive</span>
-              <ArrowRight className="h-4 w-4 ml-1.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {auditDocs.map((doc) => (
-              <DocumentCard key={doc.id} document={doc} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 3. Licenses & Statutory Approvals Section */}
-      <section id="licenses" className="py-14 sm:py-20 bg-background scroll-mt-20">
-        <Container size="lg">
-          <div className="mb-10">
-            <SectionHeading
-              eyebrow="Section 3"
-              title="Licenses & Statutory Approvals"
-              description="Municipal and state operational clearances required for grassroots humanitarian relief work."
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {licenseDocs.map((doc) => (
-              <DocumentCard key={doc.id} document={doc} />
-            ))}
+            <p className="mt-5 text-xs text-muted-foreground leading-relaxed">
+              This register will be updated as official documents are obtained and cleared for public hosting.
+              For institutional verification or certified copies, please contact our compliance desk.
+            </p>
           </div>
         </Container>
       </section>

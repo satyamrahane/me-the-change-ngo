@@ -41,9 +41,13 @@ export function Footer() {
             {/* Column 1: About & Mission */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white font-bold text-base shadow-sm">
+                <span
+                  className="font-heading font-extrabold text-lg tracking-widest text-emerald-400 select-none"
+                  aria-hidden="true"
+                >
                   MC
-                </div>
+                </span>
+                <span className="h-6 w-px bg-slate-700 self-center hidden sm:inline-block" aria-hidden="true" />
                 <div className="flex flex-col">
                   <span className="font-heading text-lg font-bold text-white tracking-tight">
                     {siteConfig.name}

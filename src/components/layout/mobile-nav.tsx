@@ -152,9 +152,10 @@ export function MobileNav() {
                 onClick={() => closeMenu(false)}
                 className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-base shadow-sm">
+                <span className="font-heading font-extrabold text-base tracking-widest text-[#0f5132] select-none" aria-hidden="true">
                   MC
-                </div>
+                </span>
+                <span className="h-5 w-px bg-border/80 self-center" aria-hidden="true" />
                 <div className="flex flex-col">
                   <span className="font-heading text-base font-bold text-foreground leading-tight">
                     {siteConfig.name}

@@ -38,7 +38,7 @@ export function InstagramFeed() {
           <SectionHeading
             eyebrow={`${siteConfig.social.instagramHandle} on Instagram`}
             title="Follow Our On-Ground Action"
-            description="Real-time updates, field distribution drives, and community stories directly from Pune."
+            description="Curated highlights, field distribution drives, and community stories directly from Pune."
           />
 
           <Button

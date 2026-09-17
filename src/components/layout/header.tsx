@@ -26,10 +26,17 @@ export function Header() {
             className="flex items-center gap-3 group rounded-lg p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             aria-label={`${siteConfig.name} - Home`}
           >
-            {/* Logo Emblem Placeholder */}
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground font-bold text-lg shadow-sm transition-transform group-hover:scale-105 group-hover:bg-primary-hover">
+            {/* Temporary Typographic Monogram Mark (Placeholder until official logo is supplied by NGO) */}
+            <span
+              className="font-heading font-extrabold text-lg tracking-widest text-[#0f5132] select-none group-hover:text-primary transition-colors"
+              aria-hidden="true"
+            >
               MC
-            </div>
+            </span>
+            <span
+              className="h-6 w-px bg-border/80 self-center hidden sm:inline-block"
+              aria-hidden="true"
+            />
 
             {/* Brand Typography */}
             <div className="flex flex-col">

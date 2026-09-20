@@ -28,13 +28,16 @@ export async function sendFormNotification(
 ): Promise<EmailSendResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const recipientEmail = process.env.NOTIFICATION_EMAIL;
+  const senderEmail = process.env.EMAIL_FROM;
 
   // Development / Unconfigured Mode
   if (
     !apiKey ||
     !recipientEmail ||
+    !senderEmail ||
     apiKey.includes("placeholder") ||
-    recipientEmail.includes("placeholder")
+    recipientEmail.includes("placeholder") ||
+    senderEmail.includes("placeholder")
   ) {
     if (process.env.NODE_ENV !== "production") {
       console.log(
@@ -45,7 +48,7 @@ export async function sendFormNotification(
           phone: payload.senderPhone,
           details: payload.details,
           timestamp: new Date().toISOString(),
-          note: "Set RESEND_API_KEY and NOTIFICATION_EMAIL to enable live mail delivery.",
+          note: "Set RESEND_API_KEY, NOTIFICATION_EMAIL, and EMAIL_FROM to enable live mail delivery.",
         }
       );
     }
@@ -84,7 +87,7 @@ export async function sendFormNotification(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: process.env.EMAIL_FROM || "Me The Change Notifications <notifications@methechange.org>",
+        from: senderEmail,
         to: [recipientEmail],
         reply_to: payload.senderEmail,
         subject: `[Website Form] New ${payload.type.toUpperCase()}: ${payload.senderName}`,

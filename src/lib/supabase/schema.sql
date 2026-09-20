@@ -111,7 +111,7 @@ CREATE POLICY "Service role full access on csr_inquiries"
 -- 4. Donations Table (Phase 9: Razorpay Payment Integration)
 -- ==============================================================================
 CREATE TABLE IF NOT EXISTS public.donations (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    id TEXT PRIMARY KEY DEFAULT gen_random_uuid()::text,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'captured', 'failed', 'cancelled')),

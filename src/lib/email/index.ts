@@ -30,7 +30,12 @@ export async function sendFormNotification(
   const recipientEmail = process.env.NOTIFICATION_EMAIL;
 
   // Development / Unconfigured Mode
-  if (!apiKey || !recipientEmail) {
+  if (
+    !apiKey ||
+    !recipientEmail ||
+    apiKey.includes("placeholder") ||
+    recipientEmail.includes("placeholder")
+  ) {
     if (process.env.NODE_ENV !== "production") {
       console.log(
         `[Email Notification - DEV MODE] New ${payload.type.toUpperCase()} submission:`,
@@ -81,6 +86,7 @@ export async function sendFormNotification(
       body: JSON.stringify({
         from: process.env.EMAIL_FROM || "Me The Change Notifications <notifications@methechange.org>",
         to: [recipientEmail],
+        reply_to: payload.senderEmail,
         subject: `[Website Form] New ${payload.type.toUpperCase()}: ${payload.senderName}`,
         html: emailHtml,
       }),
